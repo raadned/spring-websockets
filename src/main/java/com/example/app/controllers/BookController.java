@@ -2,6 +2,7 @@ package com.example.app.controllers;
 
 import com.example.app.mongo.documents.Book;
 import com.example.app.services.BookService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,8 @@ public class BookController {
     }
 
     @PostMapping("/books")
-    public Book postBook(@RequestBody Book book) {
-        log.info("Saving book {}", book);
+    public Book postBook(@RequestBody Book book) throws JsonProcessingException, JsonProcessingException {
+        log.info("Saving book {}", book.toString());
         bookService.insertBook(book);
         return book;
     }
