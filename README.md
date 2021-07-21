@@ -20,7 +20,16 @@ Sample Spring Boot Service using Websockets
 
 `docker run -it -v /mongo/data:/data/db -p 27017:27017 --name mongodb -d mongo`
 
-## Running the project using Intellij
+## Running the project 
 
-1. Import the project in IntelliJ
-2. Start the project by running Application.java 
+### Using Intellij
+
+* Import the project in IntelliJ
+* Start the project by running Application.java 
+
+### Using Maven
+
+In the root folder run : 
+* `mvn clean install`
+
+* `mvn spring-boot:run`
