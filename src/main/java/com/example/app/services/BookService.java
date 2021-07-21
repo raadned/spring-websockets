@@ -25,14 +25,21 @@ public class BookService {
     private SimpMessagingTemplate template;
 
     public void insertBook(Book book) throws JsonProcessingException {
-        setMongoDocumentIdFor(book);
         log.info("Saving book {}", book);
-        bookRepository.save(book);
-
-        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        String json = ow.writeValueAsString(book);
-        template.convertAndSend("/topic/updates", json);
+        saveBookToMongo(book);
+        String stringRepresentation = getStringRepresentation(book);
+        template.convertAndSend("/topic/updates", stringRepresentation);
         log.info("Saved book {}", book);
+    }
+
+    private String getStringRepresentation(Book book) throws JsonProcessingException {
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        return ow.writeValueAsString(book);
+    }
+
+    private void saveBookToMongo(Book book) {
+        setMongoDocumentIdFor(book);
+        bookRepository.save(book);
     }
 
     public List<Book> getAllBooks() {
