@@ -1,5 +1,5 @@
-# spring-websocket-example
-Sample Spring Boot Service using Websockets
+# About
+Sample Spring Boot Service using Websockets. The service exposes an API endpoint to persist book related data which then streams the payload using websockets.
 
 ## Dependencies required to run the project
 
