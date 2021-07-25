@@ -6,4 +6,9 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - /mongo/data:/data/db
+      - ${HOME}/mongo/data:/data/db
+  spring-websockets:
+    image: spring-websockets
+    container_name: spring-service
+    ports:
+      - "8080:8080"
