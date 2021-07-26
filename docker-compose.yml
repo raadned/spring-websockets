@@ -10,5 +10,7 @@ services:
   spring-websockets:
     image: spring-websockets
     container_name: spring-service
+    depends_on:
+      - mongodb
     ports:
       - "8080:8080"
