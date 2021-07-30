@@ -28,6 +28,12 @@ Sample Spring Boot Service using Websockets. The service exposes an API endpoint
 
 `docker-compose up -d`
 
+If you want to start the application using docker-compose ensure the image is build
+with the following application.properties configuration:
+
+`spring.data.mongodb.host=mongodb`
+`spring.data.mongodb.port=27017`
+
 ## Running the project 
 
 ### Using Intellij
