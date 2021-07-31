@@ -1,8 +1,12 @@
 # About
-Sample Spring Boot Service using Websockets. The service exposes an API endpoint to persist book related data which then streams the payload using websockets.
+
+Application developed using Spring Boot.  
+
+The service exposes a REST API endpoint to persist book information. The API calls' payloads are streamed using websockets on a topic.
 
 ## Dependencies required to run the project
 
+* JDK 14
 * Docker
 * MongoDB
 
