@@ -1,5 +1,6 @@
 package com.example.app.mongo.documents;
 
+import com.example.app.model.builders.BookBuilder;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
@@ -14,6 +15,23 @@ public class Book {
     private String author;
     private int numPages;
     private LocalDate releaseDate;
+
+    public Book() {}
+
+    public Book(String title, String author, int numPages, LocalDate releaseDate) {
+        this.title = title;
+        this.author = author;
+        this.numPages = numPages;
+        this.releaseDate = releaseDate;
+    }
+
+    public Book(String id, String title, String author, int numPages, LocalDate releaseDate) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.numPages = numPages;
+        this.releaseDate = releaseDate;
+    }
 
     public String getTitle() {
         return title;
@@ -78,4 +96,15 @@ public class Book {
                 ", releaseDate=" + releaseDate +
                 '}';
     }
+
+    public static Book deepClone(Book book) {
+        return new BookBuilder()
+                .setId(book.getId())
+                .setAuthor(book.getAuthor())
+                .setNumPages(book.getNumPages())
+                .setTitle(book.getTitle())
+                .setReleaseDate(book.getReleaseDate())
+                .createBook();
+    }
+
 }
