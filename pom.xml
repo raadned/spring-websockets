@@ -61,6 +61,12 @@
             <artifactId>jquery</artifactId>
             <version>3.1.1-1</version>
         </dependency>
+        <dependency>
+            <scope>test</scope>
+            <groupId>de.bwaldvogel</groupId>
+            <artifactId>mongo-java-server</artifactId>
+            <version>1.38.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
