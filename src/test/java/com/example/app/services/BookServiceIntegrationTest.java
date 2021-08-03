@@ -32,7 +32,6 @@ class BookServiceIntegrationTest {
     public void setUp() {
         this.server = new MongoServer(new MemoryBackend());
         server.bind("localhost", 27018);
-        //MongoClient client = MongoClients.create("mongodb://localhost:27018");
     }
 
     @AfterEach
