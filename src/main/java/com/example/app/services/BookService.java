@@ -37,7 +37,7 @@ public class BookService {
         return ow.writeValueAsString(book);
     }
 
-    private void saveBookToMongo(Book book) {
+    public void saveBookToMongo(Book book) {
         setMongoDocumentIdFor(book);
         bookRepository.save(book);
     }
